@@ -23,14 +23,20 @@ const SignUp = () => {
       "December",
     ];
 
-    //Months are always the same
     (function populateMonths() {
+      const optionMonth = document.createElement("option");
+      optionMonth.textContent = "Month";
+      optionMonth.disabled = true;
+      optionMonth.hidden = true;
+      optionMonth.selected = true;
+      monthSelect.appendChild(optionMonth);
+
       for (let i = 0; i < months.length; i++) {
         const option = document.createElement("option");
         option.textContent = months[i];
         monthSelect.appendChild(option);
       }
-      monthSelect.value = "January";
+      monthSelect.value = "Month";
     })();
 
     let previousDay;
@@ -41,9 +47,9 @@ const SignUp = () => {
       while (daySelect.firstChild) {
         daySelect.removeChild(daySelect.firstChild);
       }
-      //Holds the number of days in the month
+
       let dayNum;
-      //Get the current year
+
       let year = yearSelect.value;
 
       if (
@@ -72,11 +78,19 @@ const SignUp = () => {
         }
       }
       //Insert the correct days into the day <select>
+      const optionDay = document.createElement("option");
+      optionDay.textContent = "Day";
+      optionDay.disabled = true;
+      optionDay.hidden = true;
+      optionDay.selected = true;
+      daySelect.appendChild(optionDay);
+
       for (let i = 1; i <= dayNum; i++) {
         const option = document.createElement("option");
         option.textContent = i;
         daySelect.appendChild(option);
       }
+
       if (previousDay) {
         daySelect.value = previousDay;
         if (daySelect.value === "") {
@@ -92,14 +106,21 @@ const SignUp = () => {
     }
 
     function populateYears() {
-      //Get the current year as a number
       let year = new Date().getFullYear();
-      //Make the previous 100 years be an option
+
+      const optionYear = document.createElement("option");
+      optionYear.textContent = "Year";
+      optionYear.disabled = true;
+      optionYear.hidden = true;
+      optionYear.selected = true;
+      yearSelect.appendChild(optionYear);
+
       for (let i = 0; i < 101; i++) {
         const option = document.createElement("option");
         option.textContent = year - i;
         yearSelect.appendChild(option);
       }
+      yearSelect.value = "Year";
     }
 
     populateDays(monthSelect.value);
@@ -117,10 +138,9 @@ const SignUp = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center pt-[2%]">
       <div>
         <div>
-          {" "}
           <svg
             width="50px"
             height="40px"
@@ -135,7 +155,9 @@ const SignUp = () => {
             />
           </svg>
         </div>
-        <h3>Create an account</h3>
+        <h3 className="text-[30px]/[39.9px] font-bold py-[36px]">
+          Create an account
+        </h3>
         <div>
           <form className="flex flex-col justify-center">
             <input
@@ -149,26 +171,46 @@ const SignUp = () => {
               placeholder="E-mail"
             />
 
-            <a href="/">Use email</a>
-            <h4>Date of birth</h4>
-            <p>
+            <a
+              className="text-[18px]/[23.94px] text-[#1DA1F2] py-[30px]"
+              href="/"
+            >
+              Use email
+            </a>
+            <h4 className="text-[18px]/[23.94px] font-bold py-[10px]">
+              Date of birth
+            </h4>
+            <p className="text-base/[24px] max-w-2xl">
               Facilisi sem pulvinar velit nunc, gravida scelerisque amet nibh
               sit. Quis bibendum ante phasellus metus, magna lacinia sed augue.
               Odio enim nascetur leo mauris vel eget. Pretium id ullamcorper
               blandit viverra dignissim eget tellus. Nibh mi massa in molestie a
               sit. Elit congue.
             </p>
-            <div>
-              <span>
-                <select placeholder="Month" name="month" id="month"></select>
-              </span>
-              <span>
-                <select placeholder="Day" name="day" id="day"></select>
-              </span>
-              <span>
-                <select placeholder="Year" name="year" id="year"></select>
-              </span>
+            <div className="flex flex-row flex-grow  max-w-2xl justify-between gap-5 pb-16 pt-5">
+              <select
+                className="border rounded-md border-[#00000033] py-5 pl-[23px] max-w-fit"
+                name="month"
+                id="month"
+              ></select>
+
+              <select
+                className="border rounded-md border-[#00000033] py-5 pl-[23px] max-w-fit"
+                name="day"
+                id="day"
+              ></select>
+
+              <select
+                className="border rounded-md border-[#00000033] py-5 pl-[23px] max-w-max"
+                name="year"
+                id="year"
+              ></select>
             </div>
+            <input
+              className="bg-[#1DA1F2] text-white text-[18px]/[23.94px] font-bold rounded-[76px] py-[18px] px-[200px]"
+              type="submit"
+              value="Next"
+            />
           </form>
         </div>
       </div>

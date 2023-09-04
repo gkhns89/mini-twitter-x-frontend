@@ -4,8 +4,7 @@ const SignIn = () => {
   return (
     <div className="flex flex-col justify-center items-center pt-[5%]">
       <div>
-        <div className="">
-          {" "}
+        <div>
           <svg
             width="50px"
             height="40px"
