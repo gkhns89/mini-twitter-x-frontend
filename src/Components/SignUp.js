@@ -115,7 +115,7 @@ const SignUp = () => {
       optionYear.selected = true;
       yearSelect.appendChild(optionYear);
 
-      for (let i = 0; i < 101; i++) {
+      for (let i = 18; i < 60; i++) {
         const option = document.createElement("option");
         option.textContent = year - i;
         yearSelect.appendChild(option);
@@ -139,7 +139,7 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-col justify-center items-center pt-[2%]">
-      <div>
+      <div className="max-w-2xl">
         <div>
           <svg
             width="50px"
@@ -158,61 +158,61 @@ const SignUp = () => {
         <h3 className="text-[30px]/[39.9px] font-bold py-[36px]">
           Create an account
         </h3>
-        <div>
-          <form className="flex flex-col justify-center">
-            <input
-              className="border rounded-md border-[#00000033] py-5 pl-[23px]"
-              type="text"
-              placeholder="Name"
-            />
-            <input
-              className="border rounded-md border-[#00000033] py-5 pl-[23px] mt-[25px]"
-              type="text"
-              placeholder="E-mail"
-            />
 
-            <a
-              className="text-[18px]/[23.94px] text-[#1DA1F2] py-[30px]"
-              href="/"
-            >
-              Use email
-            </a>
-            <h4 className="text-[18px]/[23.94px] font-bold py-[10px]">
-              Date of birth
-            </h4>
-            <p className="text-base/[24px] max-w-2xl">
-              Facilisi sem pulvinar velit nunc, gravida scelerisque amet nibh
-              sit. Quis bibendum ante phasellus metus, magna lacinia sed augue.
-              Odio enim nascetur leo mauris vel eget. Pretium id ullamcorper
-              blandit viverra dignissim eget tellus. Nibh mi massa in molestie a
-              sit. Elit congue.
-            </p>
-            <div className="flex flex-row flex-grow  max-w-2xl justify-between gap-5 pb-16 pt-5">
-              <select
-                className="border rounded-md border-[#00000033] py-5 pl-[23px] max-w-fit"
-                name="month"
-                id="month"
-              ></select>
+        <form className="flex flex-col justify-center">
+          <input
+            className="border rounded-md border-[#00000033] py-5 pl-[23px]"
+            type="text"
+            placeholder="Name"
+          />
+          <input
+            className="border rounded-md border-[#00000033] py-5 pl-[23px] mt-[25px]"
+            type="text"
+            placeholder="E-mail"
+          />
 
-              <select
-                className="border rounded-md border-[#00000033] py-5 pl-[23px] max-w-fit"
-                name="day"
-                id="day"
-              ></select>
+          <a
+            className="text-[18px]/[23.94px] text-[#1DA1F2] py-[30px]"
+            href="/"
+          >
+            Use email
+          </a>
+          <h4 className="text-[18px]/[23.94px] font-bold py-[10px]">
+            Date of birth
+          </h4>
+          <p className="text-base/[24px] ">
+            Facilisi sem pulvinar velit nunc, gravida scelerisque amet nibh sit.
+            Quis bibendum ante phasellus metus, magna lacinia sed augue. Odio
+            enim nascetur leo mauris vel eget. Pretium id ullamcorper blandit
+            viverra dignissim eget tellus. Nibh mi massa in molestie a sit. Elit
+            congue.
+          </p>
 
-              <select
-                className="border rounded-md border-[#00000033] py-5 pl-[23px] max-w-max"
-                name="year"
-                id="year"
-              ></select>
-            </div>
-            <input
-              className="bg-[#1DA1F2] text-white text-[18px]/[23.94px] font-bold rounded-[76px] py-[18px] px-[200px]"
-              type="submit"
-              value="Next"
-            />
-          </form>
-        </div>
+          <div className="flex flex-row lg:flex-col justify-between gap-3 pb-16 pt-5 ">
+            <select
+              className="border rounded-md border-[#00000033] py-6 pl-[23px] basis-2/3"
+              name="month"
+              id="month"
+            ></select>
+
+            <select
+              className="border rounded-md border-[#00000033] py-6 pl-[23px] basis-1/3"
+              name="day"
+              id="day"
+            ></select>
+
+            <select
+              className="border rounded-md border-[#00000033] py-6 pl-[23px] basis-1/3"
+              name="year"
+              id="year"
+            ></select>
+          </div>
+          <input
+            className="bg-[#1DA1F2] text-white text-[18px]/[23.94px] font-bold rounded-[76px] py-[18px] px-[200px]"
+            type="submit"
+            value="Next"
+          />
+        </form>
       </div>
     </div>
   );
